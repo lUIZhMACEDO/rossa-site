@@ -55,7 +55,7 @@ class JsonIngester extends Controller
     {
         $study = new Study([
             'created_at' => now(),
-            'status' => 'New',
+            'status' => 'in_progress',
             'user_id' => auth()->id(),
         ]);
 
