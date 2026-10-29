@@ -1,0 +1,43 @@
+﻿cell_name,display_name,cl_term_name,cl_id,ontology_status,tooltip,group
+osteoprogenitor,Osteoprogenitor,osteoblast,CL:0000062,mapped,No formal CL term; mapped to closest parent class,Osteoblast
+pre-osteoblast,Pre-Osteoblast,osteoblast,CL:0000062,mapped,No formal CL term; mapped to closest parent class,Osteoblast
+osteoblast,Osteoblast,osteoblast,CL:0000062,official,Cell Ontology term,Osteoblast
+osteocyte,Osteocyte,osteocyte,CL:0000137,official,Cell Ontology term,Osteoblast
+bone_lining_cell,Bone Lining Cell,osteoblast,CL:0000062,mapped,No formal CL term; mapped to closest parent class,Osteoblast
+,,,,,,
+mononuclear osteoclast,Mononuclear Osteoclast (immature osteoclast),mononuclear osteoclast,CL:0000778,official,Cell Ontology term,Osteoclast
+multinuclear osteoclast,Multinuclear Osteoclast (mature osteoclast),multinuclear osteoclast,CL:0000779,official,Cell Ontology term,Osteoclast
+,,,,,,
+articular_chondrocyte,Articular Chondrocyte,articular chondrocyte,CL:1001607,official,Cell Ontology term,Chondrocyte
+growth_plate_chondrocyte,Growth Plate Chondrocyte,growth plate cartilage chondrocyte,CL:1000217,official,Cell Ontology term,Chondrocyte
+,,,,,,
+sympathetic_neuron,Sympathetic Neuron,sympathetic neuron,CL:3000002,official,Cell Ontology term,Neural
+sensory_neuron,Sensory Neuron,sensory neuron,CL:0000101,official,Cell Ontology term,Neural
+schwann_cell,Schwann Cell,schwann cell,CL:0002573,official,Cell Ontology term,Neural
+,,,,,,
+endothelial_cell,Endothelial Cell,endothelial cell,CL:0000115,official,Cell Ontology term,Vascular
+sunusoidal_endothelial_cell,Sinusoidal Endothelial Cell,endothelial cell of sinusoid,CL:0002262,official,Cell Ontology term,Vascular
+lymphatic_endothelial_cell,Lymphatic Endothelial Cell,lymphatic endothelial cell,CL:0000664,official,Cell Ontology term,Vascular
+pericyte,Pericyte,pericyte,CL:0000669,official,Cell Ontology term,Vascular
+vascular_smooth_muscle,Vascular Smooth Muscle,vascular smooth muscle,CL:0000192,official,Cell Ontology term,Vascular
+,,,,,,
+b_cell,B Cell,mature B cell,CL:0000785,official,Cell Ontology term,Immune
+basophil,Basophil,basophil,CL:0000767,official,Cell Ontology term,Immune
+dendritic,Dendritic Cell,dendritic cell,CL:0000451,official,Cell Ontology term,Immune
+eosinophil,Eosinophil,eosinophil,CL:0000771,official,Cell Ontology term,Immune
+erythrocyte,Erythrocyte,erythrocyte,CL:0000232,official,Cell Ontology term,Immune
+macrophage,Macrophage,bone marrow macrophage,CL:0002476,official,Cell Ontology term,Immune
+mast_cell,Mast Cell,mast cell,CL:0000097,official,Cell Ontology term,Immune
+megakaryocyte,Megakaryocyte,megakaryocyte,CL:0000556,official,Cell Ontology term,Immune
+monocyte,Monocyte,monocyte,CL:0000576,official,Cell Ontology term,Immune
+natural_killer,Natural Killer Cell,natural killer cell,CL:0000623,official,Cell Ontology term,Immune
+neutrophil,Neutrophil,mature neutrophil,CL:0000096,official,Cell Ontology term,Immune
+plasma_cell,Plasma Cell,plasma cell,CL:0000786,official,Cell Ontology term,Immune
+t_cell,T Cell,T cell,CL:0000084,official,Cell Ontology term,Immune
+,,,,,,
+adipocyte,Adipocyte,adipocyte,CL:0000136,official,Cell Ontology term,Additional-Stroma
+circulating_fibrocyte,Fibrocyte,circulating fibrocyte,CL:0000135,official,Cell Ontology term,Additional-Stroma
+marrow_fibroblast,Fibroblast,marrow fibroblast,CL:0002240,official,Cell Ontology term,Additional-Stroma
+mesenchymal_stem_cell,Mesenchymal Stem Cell,mesenchymal stem cell,CL:0000134,official,Cell Ontology term,Additional-Stroma
+stromal_cell,Stromal Cell,stromal cell of bone marrow,CL:0010001,official,Cell Ontology term,Additional-Stroma
+reticular_cell,Reticular Cell,reticular cell,CL:0000432,official,Cell Ontology term,Additional-Stroma

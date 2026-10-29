@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Mail;
+
+use App\Models\CoreFacility;
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Attachment;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Queue\SerializesModels;
+
+class CfSubmissionAdminEmail extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    protected CoreFacility $coreFacility;
+
+    public string $callToAction;
+
+    /**
+     * Create a new message instance.
+     */
+    public function __construct(int $coreFacilityId)
+    {
+        $this->coreFacility = CoreFacility::findOrFail($coreFacilityId);
+        $queryParams = ['statuses' => [$this->coreFacility->status->value]];
+        $queryParams['sort'] = 'last_refreshed_at';
+        $queryParams['direction'] = 'desc';
+        $queryParams['search'] = $this->coreFacility->cf_id;
+        $this->callToAction = route('core-facility.home').'?'.http_build_query($queryParams);
+    }
+
+    /**
+     * Get the message envelope.
+     */
+    public function envelope(): Envelope
+    {
+        return new Envelope(
+            subject: 'New Core Facility Submission - Awaiting Review',
+        );
+    }
+
+    /**
+     * Get the message content definition.
+     */
+    public function content(): Content
+    {
+        return new Content(
+            markdown: 'emails.cf-submission-admin',
+            with: [
+                'coreFacility' => $this->coreFacility,
+                'callToAction' => $this->callToAction,
+            ],
+        );
+    }
+
+    /**
+     * Get the attachments for the message.
+     *
+     * @return array<int, Attachment>
+     */
+    public function attachments(): array
+    {
+        return [];
+    }
+}

@@ -1,0 +1,1489 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Comparison operation "\>" between int\<1, max\> and 0 is always true\.$#'
+			identifier: greater.alwaysTrue
+			count: 1
+			path: app/Console/Commands/BackfillUploadSteps.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CoreFacility\:\:\$createdBy\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Console/Commands/CfSendRefreshEmails.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\:\:\$role\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Console/Commands/ChangeRole.php
+
+		-
+			message: '#^Parameter \#1 \$max of method Symfony\\Component\\Console\\Style\\SymfonyStyle\:\:createProgressBar\(\) expects int, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/ExampleCoreFacilities.php
+
+		-
+			message: '#^Parameter \#2 \$length of function array_chunk expects int\<1, max\>, float given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/LoadDiseases.php
+
+		-
+			message: '#^Parameter \#2 \$length of function array_chunk expects int\<1, max\>, float given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/LoadGenes.php
+
+		-
+			message: '#^Parameter \#2 \$length of function array_chunk expects int\<1, max\>, float given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Console/Commands/ProcessChemblMolecules.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 1
+			path: app/Docs/ScrambleApiDescription.php
+
+		-
+			message: '#^Match expression does not handle remaining value\: App\\Enums\\CoreFacilityStatus\:\:EXPIRED$#'
+			identifier: match.unhandled
+			count: 1
+			path: app/Enums/CoreFacilityStatus.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\MediaUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Admin/MediaUploadAdminController.php
+
+		-
+			message: '#^Relation ''registrations'' is not found in App\\Models\\OfficeHoursSession model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Admin/OfficeHoursAdminController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnimalModel\:\:\$intercross\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/AnimalModelController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnimalModel\:\:\$study\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/AnimalModelController.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 1
+			path: app/Http/Controllers/AnimalModelController.php
+
+		-
+			message: '#^Parameter \#1 \$array \(list\<non\-empty\-string\>\) of array_values is already a list, call has no effect\.$#'
+			identifier: arrayValues.list
+			count: 1
+			path: app/Http/Controllers/AnimalModelController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\:\:deepSearch\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/Api/StudyController.php
+
+		-
+			message: '#^Relation ''analysisUploads'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Api/StudyController.php
+
+		-
+			message: '#^Relation ''comparisonGroups'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/Api/StudyController.php
+
+		-
+			message: '#^Relation ''tags'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/Api/StudyController.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Controllers\\ChemblController\:\:\$drugService\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/ChemblController.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/ChemblController.php
+
+		-
+			message: '#^Relation ''comparisonGroups'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/ComparisonGroupController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalysisType\:\:\$slug\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/DatacenterController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\AnalysisUpload\>\:\:publiclyVisible\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/DatacenterController.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 5
+			path: app/Http/Controllers/DatacenterController.php
+
+		-
+			message: '#^Relation ''focuses'' is not found in App\\Models\\AnalysisType model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/DatacenterController.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\AnalysisUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/DatacenterController.php
+
+		-
+			message: '#^Relation ''analysisType'' is not found in App\\Models\\Measurement model\.$#'
+			identifier: larastan.relationExistence
+			count: 3
+			path: app/Http/Controllers/MeasurementParametersController.php
+
+		-
+			message: '#^Relation ''regions'' is not found in App\\Models\\Measurement model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/MeasurementParametersController.php
+
+		-
+			message: '#^Relation ''specimenType'' is not found in App\\Models\\Measurement model\.$#'
+			identifier: larastan.relationExistence
+			count: 3
+			path: app/Http/Controllers/MeasurementParametersController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Study\:\:\$analysisUploads\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/PhenotypeAnalysisController.php
+
+		-
+			message: '#^Expression on left side of \?\? is not nullable\.$#'
+			identifier: nullCoalesce.expr
+			count: 1
+			path: app/Http/Controllers/PhenotypeAnalysisController.php
+
+		-
+			message: '#^Relation ''analysisUploads'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/PhenotypeAnalysisController.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between int\|string\|false and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: app/Http/Controllers/PhenotypeAnalysisController.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between mixed and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: app/Http/Controllers/PhenotypeAnalysisController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\:\:\$studies\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/PublicController.php
+
+		-
+			message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/PublicController.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between App\\Models\\User and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: app/Http/Controllers/PublicController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\SampleGroup\:\:\$animal_model_2_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/SampleGroupController.php
+
+		-
+			message: '#^Relation ''analysisUploads'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/SearchController.php
+
+		-
+			message: '#^Relation ''comparisonGroups'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/SearchController.php
+
+		-
+			message: '#^Relation ''gonadectomyProcedures'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Http/Controllers/SearchController.php
+
+		-
+			message: '#^Relation ''tags'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/SearchController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/StudyController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:contributors\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/StudyController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:isDisabled\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/StudyController.php
+
+		-
+			message: '#^Parameter \#1 \$invitation of class App\\Mail\\StudyContributorInvitationEmail constructor expects App\\Models\\StudyContributorInvitation, Illuminate\\Database\\Eloquent\\Model given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/StudyController.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between App\\Enums\\StudyStatus and ''approved'' will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 2
+			path: app/Http/Controllers/StudyController.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>mean" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Http/Controllers/StudyExportController.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>n" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Http/Controllers/StudyExportController.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>p_value" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 2
+			path: app/Http/Controllers/StudyExportController.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>sd" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Http/Controllers/StudyExportController.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\MediaUpload\:\:\$sampleGroup\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/StudyMediaUploadController.php
+
+		-
+			message: '#^Relation ''sampleGroup'' is not found in App\\Models\\MediaUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Controllers/StudyMediaUploadController.php
+
+		-
+			message: '#^Property App\\Http\\Controllers\\StudySummaryController\:\:\$studyService is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: app/Http/Controllers/StudySummaryController.php
+
+		-
+			message: '#^Access to constant HOME on an unknown class App\\Providers\\RouteServiceProvider\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Http/Middleware/RedirectIfAuthenticated.php
+
+		-
+			message: '#^Offset ''analytics_software''\|''body_weight_included''\|''dexa_instrument''\|''histological…''\|''integration_time''\|''measurement_software''\|''scan_mode''\|''scanner''\|''voxel_size''\|''xray_tube_potential'' on array\{body_weight_included\: ''body weight…'', voxel_size\: ''voxel size'', scan_mode\: ''scan mode'', scanner\: ''scanner'', xray_tube_potential\: ''x\-ray tube potential'', integration_time\: ''integration time'', analytics_software\: ''analytics software'', dexa_instrument\: ''DEXA instrument'', \.\.\.\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: app/Http/Requests/PrepareUploadRequest.php
+
+		-
+			message: '#^Offset ''specimen'' on array\{specimen\: array\{''Femur'', ''Tibia'', ''Vertebra'', ''Whole Body''\}\}\|array\{specimen\: array\{''Femur'', ''Tibia'', ''Vertebra''\}, region\: array\{''Cortical'', ''Trabecular''\}\}\|array\{specimen\: array\{''Serum'', ''Plasma'', ''Urine''\}\} in isset\(\) always exists and is not nullable\.$#'
+			identifier: isset.offset
+			count: 1
+			path: app/Http/Requests/PrepareUploadRequest.php
+
+		-
+			message: '#^Relation ''regions'' is not found in App\\Models\\Measurement model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Http/Requests/UpdateMeasurementMappingsRequest.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>display_name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Http/Requests/UpdateMeasurementMappingsRequest.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\GeneResource\:\:\$alliance_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/GeneResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\GeneResource\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/GeneResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\GeneResource\:\:\$species\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/GeneResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\GeneResource\:\:\$symbol\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/GeneResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$analysisUploads\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$animalModels\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$completion_date\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$conflicts\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$diseaseLines\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$doi\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$drugAdministrationPlans\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$funding_sources\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$identifier\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$investigators\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$is_published\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$publication_plan\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$pubmed_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$sampleGroups\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$summary\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$tags\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyDetailResource\:\:\$title\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Resources\\StudyDetailResource\:\:doiLink\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Resources\\StudyDetailResource\:\:pubmedLink\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Resources/StudyDetailResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$analysisUploads\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$animalModels\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$completion_date\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$diseaseLines\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$doi\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$drugAdministrationPlans\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$identifier\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$investigators\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$pubmed_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$summary\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$tags\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Http\\Resources\\StudyListResource\:\:\$title\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Resources\\StudyListResource\:\:doiLink\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Resources\\StudyListResource\:\:pubmedLink\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Resources/StudyListResource.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Sample\:\:\$measurementValues\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/ProcessDescriptiveStatistics.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 6
+			path: app/Jobs/ProcessDescriptiveStatistics.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$study_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/ProcessDescriptiveStatistics.php
+
+		-
+			message: '#^Parameter \#1 \$group of method App\\Jobs\\ProcessDescriptiveStatistics\:\:removeOldStats\(\) expects App\\Models\\SampleGroup, Illuminate\\Database\\Eloquent\\Model\|null given\.$#'
+			identifier: argument.type
+			count: 3
+			path: app/Jobs/ProcessDescriptiveStatistics.php
+
+		-
+			message: '#^Parameter \#2 \$group of method App\\Jobs\\ProcessDescriptiveStatistics\:\:calculateDescriptiveStatsForMeasurement\(\) expects App\\Models\\SampleGroup, Illuminate\\Database\\Eloquent\\Model\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Jobs/ProcessDescriptiveStatistics.php
+
+		-
+			message: '#^Parameter \#2 \$ν of static method MathPHP\\Statistics\\Descriptive\:\:variance\(\) expects int, true given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Jobs/ProcessDescriptiveStatistics.php
+
+		-
+			message: '#^Relation ''measurementValues'' is not found in App\\Models\\Sample model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Jobs/ProcessDescriptiveStatistics.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Sample\:\:\$measurementValues\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/ProcessInferentialStatistics.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Jobs/ProcessInferentialStatistics.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$label\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/ProcessInferentialStatistics.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$study_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Jobs/ProcessInferentialStatistics.php
+
+		-
+			message: '#^Parameter \#1 \$array of function uasort contains unresolvable type\.$#'
+			identifier: argument.unresolvableType
+			count: 1
+			path: app/Jobs/ProcessInferentialStatistics.php
+
+		-
+			message: '#^Parameter \#2 \$callback of function uasort contains unresolvable type\.$#'
+			identifier: argument.unresolvableType
+			count: 1
+			path: app/Jobs/ProcessInferentialStatistics.php
+
+		-
+			message: '#^Parameter \#2 \$comparisonGroup of method App\\Jobs\\ProcessInferentialStatistics\:\:runBatchPythonStats\(\) expects App\\Models\\ComparisonGroup, Illuminate\\Database\\Eloquent\\Model\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Jobs/ProcessInferentialStatistics.php
+
+		-
+			message: '#^Relation ''measurementValues'' is not found in App\\Models\\Sample model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Jobs/ProcessInferentialStatistics.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalysisUpload\:\:\$data_hash\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Jobs/ProcessStatisticalAnalysis.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\StatisticalAnalysisService\:\:analyzeUpload\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Jobs/ProcessStatisticalAnalysis.php
+
+		-
+			message: '#^Call to static method where\(\) on an unknown class App\\Models\\StatisticalAnalysis\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Jobs/ProcessStatisticalAnalysis.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>code" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/Account/Profile.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/Account/Profile.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>value" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/Account/Profile.php
+
+		-
+			message: '#^Relation ''country'' is not found in App\\Models\\User model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Livewire/Admin/UsersTable.php
+
+		-
+			message: '#^Relation ''role'' is not found in App\\Models\\User model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Livewire/Admin/UsersTable.php
+
+		-
+			message: '#^Offset ''F''\|''M'' on array\{M\: ''Male'', F\: ''Female''\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: app/Livewire/Collections/ComparisonGroupGeneratorButton.php
+
+		-
+			message: '#^Access to an undefined property App\\Livewire\\Collections\\MeasurementImporter\:\:\$analysisTypes\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/Collections/MeasurementImporter.php
+
+		-
+			message: '#^Access to an undefined property App\\Livewire\\Collections\\MeasurementImporter\:\:\$selectedAnalysisTypeCode\.$#'
+			identifier: property.notFound
+			count: 5
+			path: app/Livewire/Collections/MeasurementImporter.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>body_weight_included" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/Collections/MeasurementImporter.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>scan_mode" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/Collections/MeasurementImporter.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between int\<1, max\> and 0 will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: app/Livewire/CoreFacilityTable.php
+
+		-
+			message: '#^Access to an undefined property App\\Livewire\\DataExploration\:\:\$availableContexts\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/DataExploration.php
+
+		-
+			message: '#^Access to an undefined property App\\Livewire\\DataExploration\:\:\$comparisonGroups\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Livewire/DataExploration.php
+
+		-
+			message: '#^Access to an undefined property App\\Livewire\\DataExploration\:\:\$filteredAnalysisUploads\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Livewire/DataExploration.php
+
+		-
+			message: '#^Relation ''measurementValues'' is not found in App\\Models\\Measurement model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Livewire/DataExploration.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:publiclyVisible\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Livewire/Datacenter/Browser/DrugBrowser.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\<App\\Models\\AnimalModel\>\:\:publiclyVisible\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Livewire/Datacenter/Browser/GeneBrowser.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\AnimalModel model\.$#'
+			identifier: larastan.relationExistence
+			count: 4
+			path: app/Livewire/Datacenter/Browser/GeneBrowser.php
+
+		-
+			message: '#^Relation ''analysisUploads'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Livewire/Datacenter/Browser/OntologyBrowser.php
+
+		-
+			message: '#^Relation ''tags'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 4
+			path: app/Livewire/Datacenter/Browser/OntologyBrowser.php
+
+		-
+			message: '#^Relation ''analysisType'' is not found in App\\Models\\Measurement model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Livewire/Datacenter/Browser/ParameterBrowser.php
+
+		-
+			message: '#^Relation ''analysisUploads'' is not found in App\\Models\\Study model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Livewire/Datacenter/Browser/ParameterBrowser.php
+
+		-
+			message: '#^Right side of && is always true\.$#'
+			identifier: booleanAnd.rightAlwaysTrue
+			count: 1
+			path: app/Livewire/DiseaseSearch.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\:\:\$role\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/EditUserRole.php
+
+		-
+			message: '#^Parameter \$geneticAnimalTarget of method App\\Livewire\\InducibleDrugTreatmentTable\:\:mount\(\) has invalid type App\\Models\\GeneticAnimalTarget\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Livewire/InducibleDrugTreatmentTable.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$investigators\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/InvestigatorForm.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>code" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/InvestigatorForm.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>investigators" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Livewire/InvestigatorForm.php
+
+		-
+			message: '#^Access to an undefined property App\\Livewire\\MeasurementModal\:\:\$currentIndex\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Livewire/MeasurementModal.php
+
+		-
+			message: '#^Property App\\Livewire\\MoleculeSearch\:\:\$chemblService is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: app/Livewire/MoleculeSearch.php
+
+		-
+			message: '#^Method App\\Livewire\\Partials\\MechanicalTesting\:\:clearFields\(\) is unused\.$#'
+			identifier: method.unused
+			count: 1
+			path: app/Livewire/Partials/MechanicalTesting.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 2
+			path: app/Livewire/Partials/MechanicalTesting.php
+
+		-
+			message: '#^Result of \|\| is always false\.$#'
+			identifier: booleanOr.alwaysFalse
+			count: 1
+			path: app/Livewire/Partials/MechanicalTesting.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Study\:\:\$tags\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Livewire/SubjectAreaTabs.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalysisUpload\:\:\$analyteCategory\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Models/AnalysisUpload.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalysisUpload\:\:\$region\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Models/AnalysisUpload.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalysisUpload\:\:\$specimenType\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Models/AnalysisUpload.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\AnalysisUpload\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/AnalysisUpload.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\AnalysisUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/AnalysisUpload.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\AnimalLine\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/AnimalLine.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\AnimalLine model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/AnimalLine.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnimalModel\:\:\$parentA\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/AnimalModel.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnimalModel\:\:\$parentB\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/AnimalModel.php
+
+		-
+			message: '#^Call to function is_array\(\) with array will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/AnimalModel.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\AnimalModel\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/AnimalModel.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\AnimalModel model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/AnimalModel.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>label" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Models/AnimalModel.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\ComparisonGroup\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/ComparisonGroup.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 1
+			path: app/Models/ComparisonGroup.php
+
+		-
+			message: '#^Parameter \#1 \$num of function number_format expects float, string given\.$#'
+			identifier: argument.type
+			count: 4
+			path: app/Models/DescriptiveStatistic.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/DrugAdministrationEvent.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$study\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/DrugAdministrationEvent.php
+
+		-
+			message: '#^Parameter \#1 \$num of function number_format expects float, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Models/DrugAdministrationEvent.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Models/DrugAdministrationEvent.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:drugAdministrationPlans\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Models/DrugAdministrationPlan.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\DrugAdministrationPlan\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/DrugAdministrationPlan.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\GonadectomyProcedure\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/GonadectomyProcedure.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\GonadectomyProcedure model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/GonadectomyProcedure.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\InducibleDrugTreatment\:\:\$drug_dose_unit\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/InducibleDrugTreatment.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\InducibleDrugTreatment\:\:\$drug_dose_unit_other\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/InducibleDrugTreatment.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\InducibleDrugTreatment\:\:\$drug_duration_unit\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/InducibleDrugTreatment.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\InducibleDrugTreatment\:\:\$drug_duration_unit_other\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/InducibleDrugTreatment.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\InducibleDrugTreatment\:\:\$drug_frequency_other\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/InducibleDrugTreatment.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\InducibleDrugTreatment\:\:\$drug_frequency_unit\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/InducibleDrugTreatment.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\InducibleDrugTreatment\:\:\$impact_other\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/InducibleDrugTreatment.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\Investigator\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/Investigator.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\Investigator model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/Investigator.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\Measurement\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/Measurement.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\Measurement model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/Measurement.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\MechanicalTestingDetail\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/MechanicalTestingDetail.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\MechanicalTestingDetail model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/MechanicalTestingDetail.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\MediaUpload\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/MediaUpload.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\MediaUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/MediaUpload.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Sample\:\:\$analysisUpload\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Sample.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$label\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Sample.php
+
+		-
+			message: '#^Call to an undefined method App\\Models\\Sample\:\:uploads\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Models/Sample.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$full_display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/SampleGroup.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getTimelinePreview\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Models/SampleGroup.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\SampleGroup\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/SampleGroup.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\SampleGroup model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/SampleGroup.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>allele_abbreviation" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Models/SampleGroup.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Study\:\:\$analysisUploads\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Study\:\:\$mediaUploads\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Study\:\:\$tags\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$completion_date\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$conflicts\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$funding_sources\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$investigators\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Models/Study.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$summary\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Method App\\Models\\Study\:\:calculateEmbargoReminderDate\(\) should return Illuminate\\Support\\Carbon\|null but returns Carbon\\Carbon\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Models/Study.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>investigators" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 2
+			path: app/Models/Study.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\StudyFigure\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/StudyFigure.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\StudyFigure model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/StudyFigure.php
+
+		-
+			message: '#^Call to function method_exists\(\) with \$this\(App\\Models\\Tag\) and ''study'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Models/Tag.php
+
+		-
+			message: '#^Relation ''study'' is not found in App\\Models\\Tag model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Models/Tag.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\:\:\$role\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Models/User.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:canUserView\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^PHPDoc type array\<int, string\> of property App\\Models\\User\:\:\$fillable is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$fillable\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^PHPDoc type array\<int, string\> of property App\\Models\\User\:\:\$hidden is not covariant with PHPDoc type list\<string\> of overridden property Illuminate\\Database\\Eloquent\\Model\:\:\$hidden\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^Relation ''samples'' is not found in App\\Models\\AnalysisUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Observers/ComparisonGroupObserver.php
+
+		-
+			message: '#^Relation ''regions'' is not found in App\\Models\\Measurement model\.$#'
+			identifier: larastan.relationExistence
+			count: 2
+			path: app/Services/AnalysisUploadService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:createToken\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/ApiTokenRequestService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:tokens\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/ApiTokenRequestService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$identifier\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Collections/ComparisonGroupGenerator.php
+
+		-
+			message: '#^Parameter \#1 \$study of method App\\Services\\Collections\\ComparisonGroupGenerator\:\:generateForStudy\(\) expects App\\Models\\Study, Illuminate\\Database\\Eloquent\\Model given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/Collections/ComparisonGroupGenerator.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$identifier\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Collections/SampleGroupGenerator.php
+
+		-
+			message: '#^Parameter \#1 \$study of method App\\Services\\Collections\\SampleGroupGenerator\:\:generateForStudy\(\) expects App\\Models\\Study, Illuminate\\Database\\Eloquent\\Model given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/Collections/SampleGroupGenerator.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>symbol" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Services/Collections/SampleGroupGenerator.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\CoreFacility\:\:\$createdBy\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Services/CoreFacilityService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\DescriptiveStatistic\:\:\$context_key\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/Datacenter/GeneBrowserDataService.php
+
+		-
+			message: '#^Parameter \#2 \$callback of method Illuminate\\Support\\Collection\<int,array\<string, array\<int, float\>\|int\|string\|null\>\>\:\:when\(\) expects \(callable\(Illuminate\\Support\\Collection\<int, array\{comparison_group_id\: int, study_id\: int, study_identifier\: string, study_title\: string, study_url\: string, context_key\: string, analysis_type_id\: int, analysis_type_code\: string, analysis_type_name\: string, specimen_type_id\: int\|null, specimen_type_label\: string, region_id\: int\|null, region_label\: string, test_method\: string\|null, test_method_label\: string, bone_tested\: string\|null, bone_site_label\: string, gene_id\: int, gene_symbol\: string, gene_name\: string, model_label\: string, sample_group_label\: string, control_sample_group_label\: string, sex\: string\|null, sex_label\: string, age\: int\|null, age_bucket\: string, measurement_values\: non\-empty\-array\<int, float\>\}\>, bool\)\: Illuminate\\Support\\Collection\<int, array\{comparison_group_id\: int, study_id\: int, study_identifier\: string, study_title\: string, study_url\: string, context_key\: string, analysis_type_id\: int, analysis_type_code\: string, analysis_type_name\: string, specimen_type_id\: int\|null, specimen_type_label\: string, region_id\: int\|null, region_label\: string, test_method\: string\|null, test_method_label\: string, bone_tested\: string\|null, bone_site_label\: string, gene_id\: int, gene_symbol\: string, gene_name\: string, model_label\: string, sample_group_label\: string, control_sample_group_label\: string, sex\: string\|null, sex_label\: string, age\: int\|null, age_bucket\: string, measurement_values\: non\-empty\-array\<int, float\>\}\>\)\|null, Closure\(Illuminate\\Support\\Collection\)\: Illuminate\\Support\\Collection\<int, array\{comparison_group_id\: int, study_id\: int, study_identifier\: string, study_title\: string, study_url\: string, context_key\: string, analysis_type_id\: int, analysis_type_code\: string, analysis_type_name\: string, specimen_type_id\: int\|null, specimen_type_label\: string, region_id\: int\|null, region_label\: string, test_method\: string\|null, test_method_label\: string, bone_tested\: string\|null, bone_site_label\: string, gene_id\: int, gene_symbol\: string, gene_name\: string, model_label\: string, sample_group_label\: string, control_sample_group_label\: string, sex\: string\|null, sex_label\: string, age\: int\|null, age_bucket\: string, measurement_values\: non\-empty\-array\<int, float\>\}\> given\.$#'
+			identifier: argument.type
+			count: 6
+			path: app/Services/Datacenter/GeneBrowserDataService.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between string and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: app/Services/Datacenter/GeneBrowserDataService.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>code" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Services/Datacenter/GeneBrowserDataService.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>label" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Services/Datacenter/GeneBrowserDataService.php
+
+		-
+			message: '#^Using nullsafe property access "\?\-\>name" on left side of \?\? is unnecessary\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 2
+			path: app/Services/Datacenter/GeneBrowserDataService.php
+
+		-
+			message: '#^Method App\\Services\\SitemapBuilder\:\:build\(\) should return array\<int, array\{loc\: string, lastmod\?\: Illuminate\\Support\\Carbon, changefreq\?\: string, priority\?\: float\}\> but returns list\<non\-empty\-array\<literal\-string&non\-falsy\-string, Carbon\\Carbon\|float\|string\|null\>\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Services/SitemapBuilder.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalysisUpload\:\:\$analyteCategory\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/StudyOriginalDataZipService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalysisUpload\:\:\$region\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/StudyOriginalDataZipService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalysisUpload\:\:\$specimenType\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/StudyOriginalDataZipService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\MediaUpload\:\:\$sampleGroup\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/StudyOriginalDataZipService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Services/StudyService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Services/StudyService.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$user\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/StudyService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getIncompleteRequirements\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/StudyService.php
+
+		-
+			message: '#^Parameter \#1 \$callback of method Illuminate\\Support\\Collection\<int,Illuminate\\Database\\Eloquent\\Model\>\:\:filter\(\) expects \(callable\(Illuminate\\Database\\Eloquent\\Model, int\)\: bool\)\|null, Closure\(App\\Models\\Study\)\: bool given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/StudyService.php
+
+		-
+			message: '#^Parameter \#1 \$study of method App\\Services\\StudyService\:\:markApproved\(\) expects App\\Models\\Study, Illuminate\\Database\\Eloquent\\Model given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Services/StudyService.php
+
+		-
+			message: '#^Parameter \#1 \$study of method App\\Services\\StudyService\:\:submit\(\) expects App\\Models\\Study, Illuminate\\Database\\Eloquent\\Model given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/StudyService.php
+
+		-
+			message: '#^Relation ''analyteCategory'' is not found in App\\Models\\AnalysisUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Services/StudySummaryDataService.php
+
+		-
+			message: '#^Relation ''region'' is not found in App\\Models\\AnalysisUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Services/StudySummaryDataService.php
+
+		-
+			message: '#^Relation ''specimenType'' is not found in App\\Models\\AnalysisUpload model\.$#'
+			identifier: larastan.relationExistence
+			count: 1
+			path: app/Services/StudySummaryDataService.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 1
+			path: app/Support/DataExplorationProfiler.php
+
+		-
+			message: '#^Using nullsafe method call on non\-nullable type Illuminate\\Http\\Request\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
+			count: 1
+			path: app/Support/DataExplorationProfiler.php

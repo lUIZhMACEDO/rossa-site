@@ -1,0 +1,4 @@
+*.sqlite*
+data/chembl_molecules*
+data/gene*
+data/disease_lines*

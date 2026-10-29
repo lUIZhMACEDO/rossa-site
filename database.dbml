@@ -1,0 +1,647 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table studies {
+  id bigint [primary key]
+  identifier varchar [note: 'ROSSA ID', not null]
+  title text
+  summary text
+  funding_sources text
+  conflicts text
+  completion_date date
+  is_published bool
+  doi varchar
+  pubmed_id varchar
+  publication_plan text
+  embargo_months int4
+  subject_areas json
+  created_at timestamp
+  updated_at timestamp
+  user_id bigint [ref: > users.id, not null]
+  status varchar [default: 'in_progress', not null]
+  approved_at timestamp
+  performs_genetic_modification bool [default: false]
+  performs_drug_treatment bool [default: false]
+  performs_gonadectomy bool [default: false]
+  embargo_start_date date
+  embargo_reminder_date date
+  embargo_reminder_sent_at timestamp
+}
+
+Table users {
+  id bigint [primary key]
+  name varchar [not null]
+  email varchar [not null]
+  email_verified_at timestamp
+  password varchar [not null]
+  remember_token varchar
+  role_id bigint [ref: > roles.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table roles {
+  id bigint [primary key]
+  name varchar [not null, unique]
+  is_custom bool [default: false]
+  user_id bigint [ref: > users.id, note: 'custom roles are tied to a user']
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table permissions {
+  id bigint [primary key]
+  name varchar [not null]
+  description varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table permission_role {
+  id bigint [primary key]
+  role_id bigint [ref: > roles.id, not null]
+  permission_id bigint [ref: > permissions.id, not null]
+  created_at timestamp
+  updated_at timestamp
+  
+  indexes {
+    (permission_id, role_id) [unique]
+  }
+}
+
+Table core_facilities {
+  id bigint [primary key]
+  cf_id varchar
+  facility_name varchar [not null]
+  web_address text [not null]
+  institution varchar [not null]
+  contact_name varchar [not null]
+  contact_email varchar [not null]
+  analysis_types json
+  status varchar [default: 'pending']
+  user_id bigint [ref: > users.id, not null]
+  reviewer_id bigint [ref: > users.id]
+  reviewed_at timestamp
+  rejection_reason text
+  last_refreshed_at timestamp
+  expires_at timestamp
+  last_email_sent_at timestamp
+  web_checked_at timestamp
+  web_status int4
+  web_status_desc varchar
+  web_status_error text
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table feedback {
+  id bigint [primary key]
+  feedback text [not null]
+  user_id bigint [ref: > users.id]
+  ip_address varchar
+  user_agent varchar
+  previous_url text
+  resolved bool
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table countries {
+  id bigint [primary key]
+  name varchar [not null]
+  code varchar [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table analysis_types {
+  id bigint [primary key]
+  code varchar [not null]
+  name varchar [not null]
+  abbreviation varchar
+  description text
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table analyte_categories {
+  id bigint [primary key]
+  specimen_type_id bigint [ref: > specimen_types.id]
+  name varchar
+  slug varchar
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table specimen_types {
+  id bigint [primary key]
+  name varchar [not null]
+  specimen_category varchar [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table investigators {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  first_name text
+  last_name text
+  email text
+  department text
+  organization text
+  country_id bigint [ref: > countries.id]
+  state text
+  corresponding bool
+  created_at timestamp
+  updated_at timestamp
+  is_submitting bool [default: false, not null]
+}
+
+// Genetic Method / Animal Line / Group Builder Tables
+Table genetic_categories {
+  id bigint [primary key]
+  name text [not null]
+  template varchar
+  description text
+  can_cre bool [default: false]
+  can_drug_induce bool [default: false]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table genetic_methods {
+  id bigint [primary key]
+  name text [not null]
+  description text
+  allele_abbreviation varchar
+  genetic_category_id bigint [ref: > genetic_categories.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table inducible_drug_treatments {
+  id bigint [primary key]
+  dose numeric(10,4)
+  dose_unit varchar
+  duration int4
+  duration_unit varchar
+  frequency varchar
+  frequency_other varchar
+  drug_route varchar
+  drug_route_other varchar
+  impact varchar
+  animal_model_id bigint [ref: > animal_models.id, not null]
+  molecule_id bigint [ref: > molecules.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table animal_models {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  species varchar
+  animal_line_id bigint [ref: > animal_lines.id]
+  animal_model_name varchar
+  investigator varchar
+  genetic_category_id bigint [ref: > genetic_categories.id]
+  genetic_method_id bigint [ref: > genetic_methods.id]
+  gene_id bigint [ref: > genes.id]
+  promoter_gene_id bigint [ref: > genes.id]
+  promoter_other text
+  functional_change varchar
+  tissue_lineage_specificity varchar
+  gene_product varchar
+  locus_name_safe_harbor varchar
+  transgene_abbreviation varchar
+  transgene_biotype varchar
+  cre_system_used varchar
+  cre_animal_model_name varchar
+  cre_animal_line_id bigint [ref: > animal_lines.id]
+  cre_investigator varchar
+  cre_regulation_type varchar
+  intercrossed_from_id bigint [ref: > animal_models.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table sample_groups {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  age int4
+  sex varchar
+  label text
+  animal_model_id bigint [ref: > animal_models.id, not null]
+  control bool
+  genotype varchar
+  drug_treatment_id bigint [ref: > drug_treatments.id]
+  drug_treatment_type varchar [default: 'normal']
+  gonadectomy_procedure_id bigint [ref: > gonadectomy_procedures.id]
+  created_at timestamp
+  updated_at timestamp
+  cre_status varchar
+}
+
+Table comparison_groups {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  sample_group_ids json [not null]
+  measurement_overlap_data json
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table drug_treatment_lines {
+  id bigint [primary key]
+  drug_treatment_id bigint [ref: > drug_treatments.id, not null]
+  molecule_id bigint [ref: > molecules.id]
+  abbreviation varchar
+  mode varchar
+  duration int4
+  duration_unit varchar
+  frequency int4
+  frequency_unit varchar
+  dose numeric(8,2)
+  dose_unit varchar
+  start_age int4
+  target varchar
+  impact varchar
+  start_date date
+  end_date date
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table drug_treatments {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  treatment_category varchar
+  vehicle varchar
+  control_vehicle bool [default: false]
+  control_no_treatment bool [default: false]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table gonadectomy_procedures {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  type varchar
+  description text
+  age int4
+  created_at timestamp
+  updated_at timestamp
+}
+
+
+// Upload Tables
+Table analysis_uploads {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  path varchar [not null]
+  original_filename varchar [not null]
+  mime_type varchar
+  size int4
+  analysis_type_id bigint [ref: > analysis_types.id]
+  specimen_type_id bigint [ref: > specimen_types.id]
+  headers json
+  compartment varchar
+  created_at timestamp
+  updated_at timestamp
+  header_row_index int4
+  column_measurement_mappings json [default: '[]', not null]
+  region varchar
+  region_id bigint [ref: > regions.id]
+  analyte_category_id bigint [ref: > analyte_categories.id]
+  sample_group_ids json
+  group_cache json
+}
+
+Table mechanical_testing_details {
+  id bigint [primary key]
+  analysis_upload_id bigint [ref: > analysis_uploads.id, not null]
+  test_method varchar
+  orientation varchar
+  loading_rate numeric(8,2)
+  loading_rate_unit varchar
+  support_point_1 numeric(8,2)
+  support_point_2 numeric(8,2)
+  loading_point_1 numeric(8,2)
+  loading_point_2 numeric(8,2)
+  torsion_span numeric(8,2)
+  created_at timestamp
+  updated_at timestamp 
+}
+
+Table samples {
+  id bigint [primary key]
+  analysis_upload_id bigint [ref: > analysis_uploads.id, not null]
+  label varchar
+  sample_group_id bigint [ref: > sample_groups.id]
+  raw_upload_data json
+  deleted_at timestamp [note: 'soft deletes']
+  created_at timestamp
+  updated_at timestamp
+  row_index int4
+}
+
+Table media_uploads {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  analysis_upload_id bigint [ref: > analysis_uploads.id]
+  sample_id bigint [ref: > samples.id]
+  path varchar [not null]
+  original_filename varchar [not null]
+  mime_type varchar
+  size int4
+}
+
+// Measurements to Samples
+Table measurements {
+  id bigint [primary key]
+  name varchar [not null]
+  display_name text [not null]
+  unit varchar
+  analysis_type_id bigint [ref: > analysis_types.id]
+  synonyms json
+  study_id bigint [ref: > studies.id, note: 'Implies custom']
+  analyte_category_id bigint [ref: > analyte_categories.id]
+  created_at timestamp
+  updated_at timestamp
+  grouping varchar
+  graph_exclude bool [default: false, not null]
+}
+
+Table measurement_values {
+  id bigint [primary key]
+  sample_id bigint [ref: > samples.id, not null]
+  measurement_id bigint [ref: > measurements.id, not null]
+  value varchar 
+  created_at timestamp
+  updated_at timestamp
+}
+
+// Generic association tables
+Table disease_line_study {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  disease_line_id bigint [ref: > disease_lines.id, not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+// Ontology/External Lookup Tables
+Table animal_lines {
+  id bigint [primary key]
+  label varchar [not null]
+  iri text
+  description text
+  ontology varchar
+  synonyms json
+  obo_id varchar
+  definition_citation json
+  species varchar
+  study_id bigint [ref: > studies.id]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table genes {
+  id bigint [primary key]
+  alliance_id varchar [not null]
+  symbol varchar [not null]
+  name text [not null]
+  species_taxonId varchar
+  species_name varchar
+  data json
+  geneSynopsis text
+  biotype text
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table molecules {
+  id bigint [primary key]
+  chembl_id varchar [unique, not null]
+  pref_name varchar
+  molecule_type varchar
+  max_phase varchar
+  formula varchar
+  data json
+  created_at timestamp
+  updated_at timestamp
+  synonyms json
+}
+
+Table disease_lines {
+  id bigint [primary key]
+  label varchar [not null]
+  iri varchar [not null]
+  description text
+  ontology varchar [not null]
+  short_form varchar
+  obo_id varchar
+  type varchar
+  xrefs json
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table cache {
+  key varchar [primary key]
+  value text [not null]
+  expiration int4 [not null]
+}
+
+Table cache_locks {
+  key varchar [primary key]
+  owner varchar [not null]
+  expiration int4 [not null]
+}
+
+Table cells {
+  id bigint [primary key]
+  cell_name varchar [not null]
+  display_name varchar [not null]
+  cl_term_name varchar
+  cl_id varchar
+  ontology_status varchar
+  tooltip text
+  group varchar
+  created_at timestamp
+  updated_at timestamp
+  
+  indexes {
+    (cl_id, cell_name) [unique]
+  }
+}
+
+Table failed_jobs {
+  id bigint [primary key]
+  uuid varchar [not null, unique]
+  connection text [not null]
+  queue text [not null]
+  payload text [not null]
+  exception text [not null]
+  failed_at timestamp [default: `CURRENT_TIMESTAMP`, not null]
+}
+
+Table jobs {
+  id bigint [primary key]
+  queue varchar [not null]
+  payload text [not null]
+  attempts int2 [not null]
+  reserved_at int4
+  available_at int4 [not null]
+  created_at int4 [not null]
+}
+
+Table measurement_region {
+  id bigint [primary key]
+  measurement_id bigint [ref: > measurements.id, not null]
+  region_id bigint [ref: > regions.id, not null]
+  created_at timestamp
+  updated_at timestamp
+  
+  indexes {
+    (measurement_id, region_id) [unique]
+  }
+}
+
+Table migrations {
+  id int4 [primary key]
+  migration varchar [not null]
+  batch int4 [not null]
+}
+
+Table password_reset_tokens {
+  email varchar [primary key]
+  token varchar [not null]
+  created_at timestamp
+}
+
+Table personal_access_tokens {
+  id bigint [primary key]
+  tokenable_type varchar [not null]
+  tokenable_id bigint [not null]
+  name varchar [not null]
+  token varchar [not null, unique]
+  abilities text
+  last_used_at timestamp
+  expires_at timestamp
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table regions {
+  id bigint [primary key]
+  code varchar [not null, unique]
+  label varchar [not null]
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table statistics_jobs {
+  id bigint [primary key]
+  sample_group_id bigint [ref: > sample_groups.id]
+  comparison_group_id bigint [ref: > comparison_groups.id]
+  analysis_type_id bigint [ref: > analysis_types.id, not null]
+  specimen_type_id bigint [ref: > specimen_types.id]
+  analyte_category_id bigint [ref: > analyte_categories.id]
+  region varchar
+  status varchar [default: 'pending', not null]
+  processing_version int4 [default: 0, not null]
+  measurements_count int4
+  completed_at timestamp
+  error_message text
+  created_at timestamp
+  updated_at timestamp
+  context_key varchar [note: 'generated always']
+  
+  indexes {
+    (sample_group_id, context_key) [unique]
+    (comparison_group_id, context_key) [unique]
+  }
+}
+
+Table descriptive_statistics {
+  id bigint [primary key]
+  statistics_job_id bigint [ref: > statistics_jobs.id, not null]
+  sample_group_id bigint [ref: > sample_groups.id, not null]
+  analysis_type_id bigint [ref: > analysis_types.id, not null]
+  specimen_type_id bigint [ref: > specimen_types.id]
+  analyte_category_id bigint [ref: > analyte_categories.id]
+  region varchar
+  measurement_id bigint [ref: > measurements.id, not null]
+  n int4 [not null]
+  mean numeric(12,4)
+  median numeric(12,4)
+  sd numeric(12,4)
+  variance numeric(12,4)
+  sem numeric(12,4)
+  cv numeric(12,4)
+  min numeric(12,4)
+  max numeric(12,4)
+  range numeric(12,4)
+  q1 numeric(12,4)
+  q3 numeric(12,4)
+  iqr numeric(12,4)
+  outliers_2sd json
+  outliers_3sd json
+  created_at timestamp
+  updated_at timestamp
+  context_key varchar [note: 'generated always']
+  
+  indexes {
+    (context_key, sample_group_id, measurement_id) [unique]
+  }
+}
+
+Table inferential_statistics {
+  id bigint [primary key]
+  statistics_job_id bigint [ref: > statistics_jobs.id, not null]
+  comparison_group_id bigint [ref: > comparison_groups.id, not null]
+  analysis_type_id bigint [ref: > analysis_types.id, not null]
+  specimen_type_id bigint [ref: > specimen_types.id]
+  analyte_category_id bigint [ref: > analyte_categories.id]
+  region varchar
+  measurement_id bigint [ref: > measurements.id, not null]
+  test_type varchar [not null]
+  p_value numeric(10,6)
+  test_statistic numeric(12,4)
+  metadata json
+  created_at timestamp
+  updated_at timestamp
+  context_key varchar [note: 'generated always']
+  groups_tested json
+  status varchar [default: 'completed', not null]
+  
+  indexes {
+    (context_key, comparison_group_id, measurement_id, test_type) [unique]
+  }
+}
+
+Table study_tag {
+  id bigint [primary key]
+  study_id bigint [ref: > studies.id, not null]
+  tag_id bigint [ref: > tags.id, not null]
+  created_at timestamp
+  updated_at timestamp
+  
+  indexes {
+    (study_id, tag_id) [unique]
+  }
+}
+
+Table tags {
+  id bigint [primary key]
+  name varchar [not null]
+  description text
+  tab varchar
+  cell_id bigint [ref: > cells.id]
+  created_at timestamp
+  updated_at timestamp
+  
+  indexes {
+    (name, cell_id) [unique]
+  }
+}
