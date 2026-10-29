@@ -25,6 +25,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->trustHosts(at: fn () => config('app.trusted_hosts'));
+        $middleware->trustProxies(at: env('TRUSTED_PROXIES') ? explode(',', env('TRUSTED_PROXIES')) : null);
 
         $middleware->api(prepend: [
             EnsureApiEnabled::class,
