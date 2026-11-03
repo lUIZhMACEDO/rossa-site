@@ -13,6 +13,6 @@ Running it on your own laptop needs PHP 8.3, Composer, Node 20+ and Postgres 17 
 
 ## Known issues in the JSON ingester (app/Http/Controllers/JsonIngester.php)
 - status was 'New', which crashed every upload (fixed in this repo)
-- country is saved as text but the table uses country_id, so it gets dropped
-- every investigator needs an email; papers usually give only one
+- (fixed on team) country is now looked up and saved as country_id
+- (fixed on team) email is optional now
 - animal models are not ingested yet
