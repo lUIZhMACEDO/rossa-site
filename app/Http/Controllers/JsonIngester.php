@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\Investigator;
 use App\Models\Study;
 use Illuminate\Http\Request;
@@ -49,6 +50,18 @@ class JsonIngester extends Controller
                 'error' => 'Failed to create study: '.$e->getMessage(),
             ], 500);
         }
+    }
+
+    /**
+     * The investigators table stores country_id, not the country text.
+     */
+    private function countryIdFromName(?string $name): ?int
+    {
+        if ($name === null || trim($name) === '') {
+            return null;
+        }
+
+        return Country::query()->whereRaw('lower(name) = ?', [mb_strtolower(trim($name))])->value('id');
     }
 
     private function createStudy(array $json): Study
@@ -143,7 +156,7 @@ class JsonIngester extends Controller
             'investigators' => 'required|array',
             'investigators.*.first_name' => 'required|string',
             'investigators.*.last_name' => 'required|string',
-            'investigators.*.email' => 'required|email',
+            'investigators.*.email' => 'nullable|email',
             'investigators.*.department' => 'nullable|string',
             'investigators.*.organization' => 'nullable|string',
             'investigators.*.country' => 'nullable|string',
@@ -185,10 +198,10 @@ class JsonIngester extends Controller
             $investigator = $study->investigators()->create([
                 'first_name' => $investigatorData['first_name'],
                 'last_name' => $investigatorData['last_name'],
-                'email' => $investigatorData['email'],
+                'email' => $investigatorData['email'] ?? null,
                 'department' => $investigatorData['department'] ?? null,
                 'organization' => $investigatorData['organization'] ?? null,
-                'country' => $investigatorData['country'] ?? null,
+                'country_id' => $this->countryIdFromName($investigatorData['country'] ?? null),
                 'state' => $investigatorData['state'] ?? null,
                 'corresponding' => $corresponding,
                 'is_submitting' => $isSubmitting,
