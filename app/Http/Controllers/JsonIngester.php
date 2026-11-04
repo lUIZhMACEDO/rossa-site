@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\FunctionalChange;
+use App\Models\AnimalLine;
 use App\Models\Country;
+use App\Models\Gene;
+use App\Models\GeneticCategory;
+use App\Models\GeneticMethod;
 use App\Models\Investigator;
 use App\Models\Study;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
@@ -212,7 +219,71 @@ class JsonIngester extends Controller
 
         Log::info('All investigators created successfully');
 
+        $this->createAnimalModels($study, $json['animal_models'] ?? []);
+
         return $study;
+    }
+
+    /**
+     * Save the animal models the paper describes. Names are matched to the lookup
+     * tables (strain, category, method, gene); anything that does not match is left
+     * empty for the reviewer to fill in.
+     *
+     * @param  array<int, array<string, mixed>>  $animalModels
+     */
+    private function createAnimalModels(Study $study, array $animalModels): void
+    {
+        foreach ($animalModels as $data) {
+            $species = strtolower((string) ($data['species'] ?? ''));
+            if (! in_array($species, ['mouse', 'rat'], true)) {
+                Log::warning('Skipping animal model with unknown species', ['species' => $data['species'] ?? null]);
+
+                continue;
+            }
+
+            $functionalChange = str_replace(' ', '_', strtolower(trim((string) ($data['functional_change'] ?? ''))));
+
+            $study->animalModels()->create([
+                'species' => $species,
+                'animal_line_id' => $this->lookupId(AnimalLine::query()->where('species', $species), 'label', $data['animal_strain'] ?? null),
+                'animal_model_name' => $data['animal_model_name'] ?? null,
+                'genetic_category_id' => $this->lookupId(GeneticCategory::query(), 'name', $data['genetic_modification_category'] ?? null),
+                'genetic_method_id' => $this->lookupId(GeneticMethod::query(), 'name', preg_replace('/\s*\(.*\)$/', '', (string) ($data['genetic_method'] ?? ''))),
+                'gene_id' => $this->geneId($data['modified_gene'] ?? null, strtolower((string) ($data['modified_gene_species'] ?? $species))),
+                'functional_change' => FunctionalChange::tryFrom($functionalChange)?->value,
+            ]);
+        }
+    }
+
+    /**
+     * @param  Builder<Model>  $query
+     */
+    private function lookupId(Builder $query, string $column, ?string $value): ?int
+    {
+        if ($value === null || trim($value) === '') {
+            return null;
+        }
+
+        return $query->whereRaw("lower({$column}) = ?", [mb_strtolower(trim($value))])->value('id');
+    }
+
+    /**
+     * Genes are shared across species, so pick the one whose Alliance id matches.
+     */
+    private function geneId(?string $symbol, string $species): ?int
+    {
+        if ($symbol === null || trim($symbol) === '') {
+            return null;
+        }
+
+        $prefix = ['mouse' => 'MGI:', 'rat' => 'RGD:', 'human' => 'HGNC:'][$species] ?? null;
+        $query = Gene::query()->whereRaw('lower(symbol) = ?', [mb_strtolower(trim($symbol))]);
+
+        if ($prefix !== null) {
+            $query->where('alliance_id', 'like', $prefix.'%');
+        }
+
+        return $query->value('id');
     }
 }
 
