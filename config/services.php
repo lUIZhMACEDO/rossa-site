@@ -44,4 +44,10 @@ return [
         'tag' => env('GOOGLE_TAG_MANAGER_ID', null),
     ],
 
+    'anthropic' => [
+        'key' => env('ANTHROPIC_API_KEY'),
+        'model' => env('ANTHROPIC_MODEL', 'claude-sonnet-5-5'),
+        'max_pdf_mb' => (int) env('ANTHROPIC_MAX_PDF_MB', 20),
+    ],
+
 ];
