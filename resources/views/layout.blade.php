@@ -149,6 +149,7 @@
 			</div>
 		</div>
 	</footer>
+	@include('components.chatbot-button')
 	@htmx
 		@livewireScriptConfig
 	@else
