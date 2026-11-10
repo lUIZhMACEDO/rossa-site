@@ -1,5 +1,7 @@
 # Team 51 notes
 
+Team 51: Luiz Macedo, Mayank Surti, Qingyang Gu
+
 Our working copy of the ROSSA site, so the team can read and edit the code.
 The original is Brian's repo (uconndxlab/rossa, private). Changes that should go live go to him.
 
